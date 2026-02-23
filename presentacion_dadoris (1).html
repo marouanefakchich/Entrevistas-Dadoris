@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guía de Grabación - Testimonios Dádoris</title>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #FF6B35;
+            --secondary: #004E89;
+            --accent: #FFD23F;
+            --dark: #1A1A2E;
+            --light: #F8F9FA;
+            --success: #06D6A0;
+        }
+
+        body {
+            font-family: 'Manrope', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: var(--dark);
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Slide system */
+        .slide {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 60px 20px;
+            opacity: 0;
+            animation: fadeIn 0.8s ease forwards;
+        }
+
+        @keyframes fadeIn {
+            to { opacity: 1; }
+        }
+
+        .slide-content {
+            background: white;
+            border-radius: 30px;
+            padding: 60px;
+            box-shadow: 0 30px 90px rgba(0,0,0,0.3);
+            max-width: 1000px;
+            width: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .slide-content::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 8px;
+            background: linear-gradient(90deg, var(--primary), var(--accent), var(--success));
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: var(--secondary);
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--secondary);
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        h3 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 20px;
+            margin-top: 30px;
+        }
+
+        p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: #555;
+            margin-bottom: 15px;
+        }
+
+        .emoji {
+            font-size: 3rem;
+            display: inline-block;
+            animation: bounce 2s ease infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, #FFE5E5 0%, #FFF4E5 100%);
+            border-left: 6px solid var(--primary);
+            padding: 25px 30px;
+            border-radius: 15px;
+            margin: 25px 0;
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--dark);
+        }
+
+        .warning-box {
+            background: linear-gradient(135deg, #FFF4E5 0%, #FFE5E5 100%);
+            border: 3px solid var(--primary);
+            padding: 30px;
+            border-radius: 20px;
+            margin: 30px 0;
+            text-align: center;
+        }
+
+        .warning-box h3 {
+            color: var(--primary);
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin: 30px 0;
+        }
+
+        .step-card {
+            background: linear-gradient(135deg, #f8f9ff 0%, #e8f0ff 100%);
+            padding: 30px;
+            border-radius: 20px;
+            border: 2px solid #e0e7ff;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .step-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+
+        .step-number {
+            position: absolute;
+            top: -15px;
+            left: 20px;
+            background: var(--primary);
+            color: white;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 1.3rem;
+            box-shadow: 0 5px 15px rgba(255, 107, 53, 0.4);
+        }
+
+        .step-card h4 {
+            font-size: 1.4rem;
+            color: var(--secondary);
+            margin-bottom: 12px;
+            margin-top: 15px;
+        }
+
+        .step-card p {
+            font-size: 1.05rem;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .checklist {
+            list-style: none;
+            margin: 25px 0;
+        }
+
+        .checklist li {
+            padding: 18px 20px 18px 60px;
+            margin: 15px 0;
+            background: linear-gradient(135deg, #e8f5e9 0%, #f1f8f4 100%);
+            border-radius: 15px;
+            position: relative;
+            font-size: 1.2rem;
+            line-height: 1.6;
+            transition: all 0.3s ease;
+        }
+
+        .checklist li:hover {
+            transform: translateX(10px);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .checklist li::before {
+            content: '✓';
+            position: absolute;
+            left: 20px;
+            color: var(--success);
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+
+        .video-example {
+            background: #000;
+            border-radius: 20px;
+            padding: 40px;
+            margin: 30px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .phone-mockup {
+            width: 250px;
+            height: 500px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 40px;
+            margin: 0 auto;
+            padding: 15px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+            position: relative;
+        }
+
+        .phone-screen {
+            width: 100%;
+            height: 100%;
+            background: white;
+            border-radius: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .recording-indicator {
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: red;
+            color: white;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            animation: pulse 2s ease infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.6; }
+        }
+
+        .rec-dot {
+            width: 12px;
+            height: 12px;
+            background: white;
+            border-radius: 50%;
+            animation: blink 1s ease infinite;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.3; }
+        }
+
+        .link-box {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+            margin: 30px 0;
+            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.4);
+        }
+
+        .link-box h3 {
+            color: white;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+        }
+
+        .link-button {
+            display: inline-block;
+            background: white;
+            color: var(--secondary);
+            padding: 18px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .link-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+        }
+
+        .timeline {
+            position: relative;
+            padding: 30px 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(180deg, var(--primary), var(--accent));
+            border-radius: 2px;
+        }
+
+        .timeline-item {
+            display: flex;
+            align-items: center;
+            margin: 40px 0;
+            position: relative;
+        }
+
+        .timeline-item:nth-child(odd) {
+            flex-direction: row;
+        }
+
+        .timeline-item:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        .timeline-content {
+            flex: 1;
+            background: linear-gradient(135deg, #f8f9ff 0%, #fff 100%);
+            padding: 25px 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            margin: 0 30px;
+        }
+
+        .timeline-icon {
+            width: 60px;
+            height: 60px;
+            background: white;
+            border: 4px solid var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 10;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .navigation {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(255,255,255,0.95);
+            padding: 15px 25px;
+            border-radius: 50px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+            z-index: 1000;
+        }
+
+        .nav-dot {
+            width: 12px;
+            height: 12px;
+            background: #ddd;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .nav-dot.active {
+            background: var(--primary);
+            width: 30px;
+            border-radius: 6px;
+        }
+
+        .fullscreen-btn {
+            margin-left: 15px;
+            padding: 8px 20px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: white;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 5px 15px rgba(255, 107, 53, 0.3);
+        }
+
+        .fullscreen-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(255, 107, 53, 0.4);
+        }
+
+        .fullscreen-btn:active {
+            transform: translateY(0);
+        }
+
+        .contact-info {
+            background: linear-gradient(135deg, #e8f5e9 0%, #f1f8f4 100%);
+            padding: 30px;
+            border-radius: 20px;
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2.5rem; }
+            h2 { font-size: 2rem; }
+            .slide-content { padding: 30px 20px; }
+            .steps-grid { grid-template-columns: 1fr; }
+            .timeline::before { left: 20px; }
+            .timeline-item { flex-direction: column !important; }
+            .timeline-content { margin: 0 0 0 50px; }
+            .timeline-icon { left: 20px; transform: translateX(0); }
+        }
+
+        .fade-in-up {
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .stagger-1 { animation-delay: 0.1s; }
+        .stagger-2 { animation-delay: 0.2s; }
+        .stagger-3 { animation-delay: 0.3s; }
+        .stagger-4 { animation-delay: 0.4s; }
+    </style>
+</head>
+<body>
+    <!-- Slide 1: Portada -->
+    <div class="slide" id="slide-1">
+        <div class="container">
+            <div class="slide-content">
+                <h1 class="fade-in-up">🎬 Testimonios Dádoris</h1>
+                <p class="fade-in-up stagger-1" style="font-size: 1.5rem; color: var(--secondary); margin-top: 20px;">
+                    Guía completa para grabar tu vídeo testimonio
+                </p>
+                <div class="highlight-box fade-in-up stagger-2">
+                    <p style="margin: 0;">📹 Comparte tu historia de éxito con futuros beneficiarios</p>
+                </div>
+                <p class="fade-in-up stagger-3" style="margin-top: 30px; font-size: 1.1rem;">
+                    En esta presentación encontrarás todas las instrucciones para grabar 
+                    tu testimonio de forma sencilla y profesional.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 2: Objetivos -->
+    <div class="slide" id="slide-2">
+        <div class="container">
+            <div class="slide-content">
+                <h2><span class="emoji">🎯</span> ¿Por qué tu testimonio?</h2>
+                
+                <div class="steps-grid">
+                    <div class="step-card fade-in-up stagger-1">
+                        <div class="step-number">1</div>
+                        <h4>Inspirar</h4>
+                        <p>Tu historia puede motivar a futuros estudiantes a solicitar el premio</p>
+                    </div>
+                    
+                    <div class="step-card fade-in-up stagger-2">
+                        <div class="step-number">2</div>
+                        <h4>Visibilizar</h4>
+                        <p>Dar a conocer el impacto real de los premios Dádoris</p>
+                    </div>
+                    
+                    <div class="step-card fade-in-up stagger-3">
+                        <div class="step-number">3</div>
+                        <h4>Conectar</h4>
+                        <p>Crear comunidad entre premiados actuales y futuros</p>
+                    </div>
+                </div>
+
+                <div class="warning-box fade-in-up stagger-4">
+                    <h3>⚠️ MUY IMPORTANTE</h3>
+                    <p style="margin: 0; font-size: 1.2rem;">
+                        <strong>La participación es 100% VOLUNTARIA</strong><br>
+                        Al subir tu vídeo, autorizas su publicación en la web de la Fundación y en el Boletín Mensual
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 3: Qué grabar -->
+    <div class="slide" id="slide-3">
+        <div class="container">
+            <div class="slide-content">
+                <h2><span class="emoji">📝</span> ¿Qué contenido incluir?</h2>
+                
+                <div class="timeline">
+                    <div class="timeline-item fade-in-up stagger-1">
+                        <div class="timeline-icon">👤</div>
+                        <div class="timeline-content">
+                            <h3>1. Identificación Personal</h3>
+                            <p><strong>Ejemplo:</strong> "Me llamo José Pérez Heredia, me gradué en Ingeniería Industrial en la Universidad Politécnica de Valencia en 2024"</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item fade-in-up stagger-2">
+                        <div class="timeline-icon">💼</div>
+                        <div class="timeline-content">
+                            <h3>2. Situación Laboral Actual</h3>
+                            <p><strong>Ejemplo:</strong> "Desde marzo de 2025 estoy trabajando en Acciona en Cáceres como ingeniero de proyectos"</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item fade-in-up stagger-3">
+                        <div class="timeline-icon">🏆</div>
+                        <div class="timeline-content">
+                            <h3>3. Impacto del Premio Dádoris</h3>
+                            <p><strong>Cuéntanos:</strong> ¿Qué ha supuesto el premio en tu vida? ¿Cómo te ha ayudado en tu desarrollo profesional?</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="highlight-box fade-in-up stagger-4">
+                    <p style="margin: 0;">⏱️ Duración recomendada: <strong>1-2 minutos</strong></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 4: Pautas técnicas -->
+    <div class="slide" id="slide-4">
+        <div class="container">
+            <div class="slide-content">
+                <h2><span class="emoji">🎥</span> Pautas Técnicas de Grabación</h2>
+                
+                <div class="video-example fade-in-up stagger-1">
+                    <div class="phone-mockup">
+                        <div class="phone-screen">
+                            <div class="recording-indicator">
+                                <div class="rec-dot"></div>
+                                REC
+                            </div>
+                            📱
+                        </div>
+                    </div>
+                    <p style="color: white; margin-top: 20px; font-size: 1.2rem;">
+                        ⬆️ <strong>Teléfono en VERTICAL</strong>
+                    </p>
+                </div>
+
+                <ul class="checklist fade-in-up stagger-2">
+                    <li><strong>Orientación vertical:</strong> Coloca el teléfono en posición vertical (no horizontal)</li>
+                    <li><strong>Buena iluminación:</strong> Luz natural o cálida, evita ambientes fríos o oscuros</li>
+                    <li><strong>Márgenes de seguridad:</strong> 3 segundos antes de hablar y 3 segundos después de terminar</li>
+                    <li><strong>Audio claro:</strong> Habla alto y claro, busca un lugar sin ruido de fondo</li>
+                    <li><strong>Estabilidad:</strong> Apoya el móvil o usa un trípode para evitar movimientos</li>
+                </ul>
+
+                <p class="fade-in-up stagger-3" style="text-align: center; font-size: 1.2rem; color: var(--primary); font-weight: 600; margin-top: 30px;">
+                    💡 Puedes hacer varias tomas hasta que te guste el resultado
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 5: Cómo entregar -->
+    <div class="slide" id="slide-5">
+        <div class="container">
+            <div class="slide-content">
+                <h2><span class="emoji">📤</span> Cómo Entregar tu Vídeo</h2>
+                
+                <div class="steps-grid fade-in-up stagger-1">
+                    <div class="step-card">
+                        <div class="step-number">1</div>
+                        <h4>Graba tu vídeo</h4>
+                        <p>Siguiendo todas las pautas indicadas anteriormente</p>
+                    </div>
+                    
+                    <div class="step-card">
+                        <div class="step-number">2</div>
+                        <h4>Revisa el resultado</h4>
+                        <p>Asegúrate de que se ve y escucha bien</p>
+                    </div>
+                    
+                    <div class="step-card">
+                        <div class="step-number">3</div>
+                        <h4>Sube al Drive</h4>
+                        <p>Utiliza el enlace proporcionado más abajo</p>
+                    </div>
+                </div>
+
+                <div class="link-box fade-in-up stagger-2">
+                    <h3>📂 Carpeta de Google Drive</h3>
+                    <p style="margin: 20px 0; font-size: 1.1rem;">
+                        Sube tu vídeo a esta carpeta compartida:
+                    </p>
+                    <a href="https://drive.google.com/drive/folders/1RYkMghxgHOvpmOwPddz9VFfK1i1LEJrY" 
+                       target="_blank" 
+                       class="link-button">
+                        🔗 Abrir Google Drive
+                    </a>
+                </div>
+
+                <div class="highlight-box fade-in-up stagger-3">
+                    <p style="margin: 0;">
+                        📋 <strong>Nombre del archivo:</strong> Nombre_Apellido_Dadoris.mp4<br>
+                        <span style="font-size: 1rem; font-weight: 400; opacity: 0.8;">Ejemplo: Jose_Perez_Dadoris.mp4</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 6: Recordatorios finales -->
+    <div class="slide" id="slide-6">
+        <div class="container">
+            <div class="slide-content">
+                <h2><span class="emoji">✅</span> Checklist Final</h2>
+                
+                <ul class="checklist fade-in-up stagger-1">
+                    <li>He grabado el vídeo en <strong>vertical</strong></li>
+                    <li>La <strong>iluminación</strong> es buena y el ambiente cálido</li>
+                    <li>He dejado <strong>3 segundos</strong> antes y después de hablar</li>
+                    <li>Se escucha <strong>claro y sin ruido</strong> de fondo</li>
+                    <li>He incluido: <strong>identificación + trabajo + impacto del premio</strong></li>
+                    <li>La duración es de <strong>1-2 minutos</strong></li>
+                    <li>He subido el vídeo al <strong>Google Drive</strong></li>
+                    <li>El archivo tiene el <strong>nombre correcto</strong></li>
+                </ul>
+
+                <div class="warning-box fade-in-up stagger-2">
+                    <h3>🙋 ¿Dudas o Consultas?</h3>
+                    <p style="margin: 15px 0 0 0; font-size: 1.1rem;">
+                        No dudes en contactar conmigo antes de grabar.<br>
+                        Estoy aquí para ayudarte en todo el proceso.
+                    </p>
+                </div>
+
+                <div class="contact-info fade-in-up stagger-3">
+                    <h3 style="color: var(--success); margin-bottom: 15px;">¡Gracias por tu participación! 🙏</h3>
+                    <p style="font-size: 1.1rem;">
+                        Tu testimonio ayudará a inspirar a futuros beneficiarios de la Fundación Dádoris
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navegación -->
+    <div class="navigation">
+        <div class="nav-dot active" onclick="goToSlide(1)"></div>
+        <div class="nav-dot" onclick="goToSlide(2)"></div>
+        <div class="nav-dot" onclick="goToSlide(3)"></div>
+        <div class="nav-dot" onclick="goToSlide(4)"></div>
+        <div class="nav-dot" onclick="goToSlide(5)"></div>
+        <div class="nav-dot" onclick="goToSlide(6)"></div>
+        <button class="fullscreen-btn" onclick="toggleFullscreen()">
+            <span id="fullscreen-icon">⛶</span>
+            <span id="fullscreen-text">Pantalla completa</span>
+        </button>
+    </div>
+
+    <script>
+        let currentSlide = 1;
+        const totalSlides = 6;
+
+        function goToSlide(slideNumber) {
+            if (slideNumber < 1 || slideNumber > totalSlides) return;
+            
+            // Hide all slides
+            document.querySelectorAll('.slide').forEach(slide => {
+                slide.style.display = 'none';
+            });
+            
+            // Show target slide
+            document.getElementById(`slide-${slideNumber}`).style.display = 'flex';
+            
+            // Update navigation
+            document.querySelectorAll('.nav-dot').forEach((dot, index) => {
+                dot.classList.toggle('active', index === slideNumber - 1);
+            });
+            
+            currentSlide = slideNumber;
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight' || e.key === ' ') {
+                goToSlide(currentSlide + 1);
+            } else if (e.key === 'ArrowLeft') {
+                goToSlide(currentSlide - 1);
+            }
+        });
+
+        // Touch navigation for mobile
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        document.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+        });
+
+        document.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+        });
+
+        function handleSwipe() {
+            if (touchEndX < touchStartX - 50) {
+                goToSlide(currentSlide + 1);
+            }
+            if (touchEndX > touchStartX + 50) {
+                goToSlide(currentSlide - 1);
+            }
+        }
+
+        // Mouse wheel navigation
+        let scrollTimeout;
+        document.addEventListener('wheel', (e) => {
+            clearTimeout(scrollTimeout);
+            scrollTimeout = setTimeout(() => {
+                if (e.deltaY > 0) {
+                    goToSlide(currentSlide + 1);
+                } else {
+                    goToSlide(currentSlide - 1);
+                }
+            }, 100);
+        }, { passive: true });
+
+        // Initialize
+        goToSlide(1);
+
+        // Fullscreen functionality
+        function toggleFullscreen() {
+            if (!document.fullscreenElement) {
+                document.documentElement.requestFullscreen().then(() => {
+                    document.getElementById('fullscreen-icon').textContent = '⛶';
+                    document.getElementById('fullscreen-text').textContent = 'Salir';
+                }).catch(err => {
+                    console.error('Error al entrar en pantalla completa:', err);
+                });
+            } else {
+                document.exitFullscreen().then(() => {
+                    document.getElementById('fullscreen-icon').textContent = '⛶';
+                    document.getElementById('fullscreen-text').textContent = 'Pantalla completa';
+                });
+            }
+        }
+
+        // Update button when exiting fullscreen with ESC
+        document.addEventListener('fullscreenchange', () => {
+            if (!document.fullscreenElement) {
+                document.getElementById('fullscreen-icon').textContent = '⛶';
+                document.getElementById('fullscreen-text').textContent = 'Pantalla completa';
+            }
+        });
+
+        // F key shortcut for fullscreen
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'f' || e.key === 'F') {
+                toggleFullscreen();
+            }
+        });
+    </script>
+</body>
+</html>
